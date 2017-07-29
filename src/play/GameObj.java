@@ -8,7 +8,15 @@ public abstract class GameObj {
 	
 	public abstract void hide();
 	public abstract void show();
-	public abstract void remove();
+	
+	public void remove() {
+		this.removed = true;
+	};
+	private boolean removed = false;
+	public boolean isRemoved() {
+		return this.removed;
+	};
+	
 	public abstract Point getPosition();
 	public abstract void setPosition(int x, int y);
 	

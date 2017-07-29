@@ -22,6 +22,10 @@ public abstract class GameRect extends GameObj {
 		Dimension gameSize = GameCore.getGameSize();
 		return getPosition().y >= gameSize.height - getSize().height;
 	}
+	public boolean isOutOfBottom() {
+		Dimension gameSize = GameCore.getGameSize();
+		return getPosition().y >= gameSize.height;
+	}
 
 	/*
 	 * Check if two rectangle obj are intersected

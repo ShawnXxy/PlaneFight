@@ -20,10 +20,10 @@ public class Game implements Runnable {
 		while (!bullet.isTopEdge()) {
 			bullet.moveUp();
 			// check if hit target
-			if (!enemy.isRemoved() && enemy.isIntersectWith(bullet)) {
-				enemy.remove();
+			if (enemy.isIntersectWith(bullet)) {
+				
 			}
-			GameCore.pause(5);
+			GameCore.pause(1);
 		}
 		bullet.remove();
 	}
@@ -32,17 +32,14 @@ public class Game implements Runnable {
 		while (true) {
 			// generate enemy randomly
 			enemy = new GameSprite("EnemyPlane");
+			enemy.playAnimate("normal");
 			int x = GameCore.rand(0, 250);
 			enemy.setPosition(x, 0);
-			enemy.playAnimate("normal");
-			
-			while (!enemy.isRemoved() && !enemy.isOutOfBottom()) {
+			while (!enemy.isOutOfBottom()) {
 				enemy.moveDown();
-				GameCore.pause(10);
+				GameCore.pause(5);
 			}
-			if (!enemy.isRemoved()) {
-				enemy.remove();
-			}
+			enemy.remove();
 		}
 	}
 
@@ -55,7 +52,7 @@ public class Game implements Runnable {
 		GameCore.loadBgView("background.png");
 		
 		// generate plane
-		this.hero = new GameSprite("HeroPlane");
+		hero = new GameSprite("HeroPlane");
 		hero.setPosition(150, 430);
 		hero.playAnimate("normal");
 		

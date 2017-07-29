@@ -61,6 +61,7 @@ public class GameText extends GameObj {
 	@Override
 	public void remove() {
 		// TODO Auto-generated method stub
+		super.remove();
 		GameCore.removeText(this.number);
 	}
 	

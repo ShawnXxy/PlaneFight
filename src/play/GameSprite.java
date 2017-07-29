@@ -60,6 +60,7 @@ public class GameSprite extends GameRect {
 	@Override
 	public void remove() {
 		// TODO Auto-generated method stub
+		super.remove();
 		GameCore.removeSprite(this.number);
 	}
 

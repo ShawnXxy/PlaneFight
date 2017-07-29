@@ -52,6 +52,7 @@ public class GameImg extends GameRect {
 	@Override
 	public void remove() {
 		// TODO Auto-generated method stub
+		super.remove();
 		GameCore.removeImage(this.number);
 	}
 
