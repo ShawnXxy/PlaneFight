@@ -21,7 +21,11 @@ public class Game implements Runnable {
 			bullet.moveUp();
 			// check if hit target
 			if (!enemy.isRemoved() && enemy.isIntersectWith(bullet)) {
+				enemy.playAnimate("bomb");
+				GameCore.pause(1000);
 				enemy.remove();
+				bullet.remove();
+				return;
 			}
 			GameCore.pause(5);
 		}
